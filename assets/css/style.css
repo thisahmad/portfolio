@@ -320,3 +320,24 @@ body:after{background:radial-gradient(500px circle at var(--pointer-x,50%) var(-
  .gradient-text,.hero-visual .code-window,.page-intro:after{animation:none!important}
  .focus-card,.project-card,.roadmap-content,.contact-option{transition:none!important}
 }
+
+
+/* Guided page-to-page flow */
+.next-step{margin-top:35px;margin-bottom:95px;padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#e8e7df;border:1px solid #17191418;border-radius:5px}
+.next-step h2{margin:9px 0 5px;font:600 clamp(25px,3vw,38px)/1.05 var(--display);letter-spacing:-.06em}
+.next-step p:not(.eyebrow){margin:0;color:#6d7268;font-size:13px}
+.next-step-link{display:inline-flex;align-items:center;gap:24px;padding:15px 18px;background:#171914;color:#fff;border-radius:3px;font:600 10px var(--mono);letter-spacing:.08em;white-space:nowrap;transition:transform .25s,box-shadow .25s}
+.next-step-link span{color:#c7f36b;font-size:16px}
+.next-step-link:hover{transform:translate(3px,-3px);box-shadow:-4px 5px 0 #c7f36b}
+body.light-theme{--bg:#f3f2ed;--bg-soft:#e9e8e1;--panel:#fffefa;--panel-2:#e8e7df;--ink:#171914;--muted:#65695f;--muted-2:#85897e;--line:#17191420;--accent:#c7f36b;--accent-2:#3d6bff;background:var(--bg);color:var(--ink)}
+body.light-theme:before{background-image:linear-gradient(#1719140a 1px,transparent 1px),linear-gradient(90deg,#1719140a 1px,transparent 1px)}
+body.light-theme .header{background:#f3f2ede8}
+body.light-theme .focus-card,body.light-theme .featured-project,body.light-theme .project-card,body.light-theme .roadmap-content,body.light-theme .command-box{background:var(--panel)!important;border-color:var(--line)!important}
+body.light-theme .footer{background:#e9e8e1}
+body.light-theme .nav{background:#f3f2ed}
+body.light-theme .nav a{color:#65695f}
+body.light-theme .nav a:hover,body.light-theme .nav a[aria-current=page]{color:#171914}
+body.light-theme .code-window{background:#171914!important;color:#e5e9dc}
+body.light-theme .float-chip{background:#fffefa!important;color:#171914!important}
+body.light-theme .next-step{background:#e8e7df}
+@media(max-width:680px){.next-step{margin-top:15px;margin-bottom:65px;padding:24px;align-items:flex-start;flex-direction:column}.next-step-link{width:100%;justify-content:space-between}}
