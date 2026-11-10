@@ -1,11 +1,22 @@
-(()=>{const y=document.querySelector("[data-year]");if(y)y.textContent=new Date().getFullYear();
-const menu=document.querySelector(".menu"),nav=document.querySelector(".nav");
-if(menu&&nav){menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close navigation":"Open navigation")});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));document.addEventListener("keydown",e=>{if(e.key==="Escape"){nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}})}
-const bar=document.querySelector(".progress"),header=document.querySelector(".header");
-const update=()=>{if(bar){const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max>0?scrollY/max*100:0)+"%"}if(header)header.classList.toggle("scrolled",scrollY>18)};
-addEventListener("scroll",update,{passive:true});update();
-const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const els=document.querySelectorAll(".reveal");
-if(!reduce&&"IntersectionObserver"in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -35px 0px"});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add("visible"));
-if(!reduce&&matchMedia("(hover:hover) and (pointer:fine)").matches){document.querySelectorAll(".card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.setProperty("--spot-x",(x*100)+"%");card.style.setProperty("--spot-y",(y*100)+"%");card.style.setProperty("--card-rx",((.5-y)*3)+"deg");card.style.setProperty("--card-ry",((x-.5)*4)+"deg")});card.addEventListener("pointerleave",()=>{["--spot-x","--spot-y","--card-rx","--card-ry"].forEach(p=>card.style.removeProperty(p))})})}
+(()=>{"use strict";
+const $=(s,root=document)=>root.querySelector(s),$$=(s,root=document)=>[...root.querySelectorAll(s)];
+const year=$("[data-year]");if(year)year.textContent=new Date().getFullYear();
+const body=document.body,menu=$(".menu"),nav=$(".nav"),progress=$(".scroll-progress"),header=$(".header"),topButton=$(".back-to-top");
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const closeMenu=()=>{if(!menu||!nav)return;nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.setAttribute("aria-label","Open navigation")};
+if(menu&&nav){menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close navigation":"Open navigation")});$$("a",nav).forEach(a=>a.addEventListener("click",closeMenu));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()})}
+const updateScroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max>0?scrollY/max*100:0)+"%";if(header)header.classList.toggle("scrolled",scrollY>20);if(topButton)topButton.classList.toggle("visible",scrollY>500)};
+addEventListener("scroll",updateScroll,{passive:true});updateScroll();
+if(topButton)topButton.addEventListener("click",()=>scrollTo({top:0,behavior:reduce?"auto":"smooth"}));
+const reveal=$$(".reveal");if(!reduce&&"IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:"0px 0px -35px 0px"});reveal.forEach(el=>observer.observe(el))}else reveal.forEach(el=>el.classList.add("visible"));
+const themeButton=$(".theme-toggle");const savedTheme=localStorage.getItem("ahmad-theme");if(savedTheme==="light"){body.classList.add("light-theme");document.documentElement.style.colorScheme="light"}if(themeButton)themeButton.addEventListener("click",()=>{const light=body.classList.toggle("light-theme");document.documentElement.style.colorScheme=light?"light":"dark";localStorage.setItem("ahmad-theme",light?"light":"dark");themeButton.textContent=light?"☀":"◐"});
+const overlay=$(".command-overlay"),openCommand=$(".command-open"),closeCommand=$(".command-close"),input=$(".command-input"),results=$$(".command-results a");
+const showCommand=()=>{if(!overlay)return;overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");setTimeout(()=>input?.focus(),30)};
+const hideCommand=()=>{if(!overlay)return;overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");if(input){input.value="";results.forEach(a=>a.hidden=false)}};
+openCommand?.addEventListener("click",showCommand);closeCommand?.addEventListener("click",hideCommand);overlay?.addEventListener("click",e=>{if(e.target===overlay)hideCommand()});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();showCommand()}if(e.key==="Escape")hideCommand();if(overlay?.classList.contains("open")&&e.key==="Enter"){const first=results.find(a=>!a.hidden);if(first)location.href=first.href}});
+input?.addEventListener("input",()=>{const q=input.value.trim().toLowerCase();results.forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q))});
+const toast=$(".toast");let toastTimer;const notify=message=>{if(!toast)return;toast.textContent=message;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),2200)};
+$$("[data-copy]").forEach(button=>button.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(button.dataset.copy);notify("Email address copied")}catch{notify("Copy unavailable — select the email address instead")}}));
+const filters=$$(".filter-btn"),cards=$$(".project-card"),empty=$(".filter-empty");filters.forEach(button=>button.addEventListener("click",()=>{filters.forEach(item=>item.classList.toggle("active",item===button));let count=0;cards.forEach(card=>{const show=button.dataset.filter==="all"||card.dataset.category===button.dataset.filter;card.hidden=!show;if(show)count++});if(empty)empty.hidden=count!==0}));
 })();
