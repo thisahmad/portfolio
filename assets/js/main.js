@@ -21,28 +21,6 @@ $$("[data-copy]").forEach(button=>button.addEventListener("click",async()=>{try{
 const filters=$$(".filter-btn"),cards=$$(".project-card"),empty=$(".filter-empty");filters.forEach(button=>button.addEventListener("click",()=>{filters.forEach(item=>item.classList.toggle("active",item===button));let count=0;cards.forEach(card=>{const show=button.dataset.filter==="all"||card.dataset.category===button.dataset.filter;card.hidden=!show;if(show)count++});if(empty)empty.hidden=count!==0}));
 
 
-/* Scroll-linked 3D circular orbit */
-const orbitStage=$(".orbit-stage"),orbitCards=$("[data-orbit-card]",orbitStage||document);
-if(orbitStage&&orbitCards.length&&!reduce){
- const updateOrbit=()=>{
-  const rect=orbitStage.getBoundingClientRect(),vh=innerHeight;
-  const progress=Math.max(0,Math.min(1,(vh-rect.top)/(vh+rect.height)));
-  const rotation=progress*210-35;
-  orbitCards.forEach((card,index)=>{
-   const angle=rotation+index*(360/orbitCards.length);
-   card.style.setProperty("--orbit-angle",angle+"deg");
-   card.style.setProperty("--orbit-counter",(-angle)+"deg");
-   const depth= Math.cos(angle*Math.PI/180);
-   card.style.zIndex=String(Math.round((depth+1)*10));
-  });
- };
- addEventListener("scroll",updateOrbit,{passive:true});
- addEventListener("resize",updateOrbit,{passive:true});
- updateOrbit();
-}else if(orbitCards.length){
- orbitCards.forEach(card=>{card.style.position="relative";card.style.transform="none";card.style.margin="8px"});
-}
-
 /* Pointer-driven depth and ambient spotlight */
 if(!reduce && matchMedia("(pointer:fine)").matches){
  const tiltTargets=$$(".focus-card,.project-card,.roadmap-content,.contact-option,.featured-project");
