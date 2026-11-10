@@ -1,21 +1,35 @@
-# Ahmad — Personal Portfolio
+# Ahmad — Personal Developer Portfolio
 
-A multi-page, responsive portfolio built with plain HTML, CSS and JavaScript.
+A responsive multi-page portfolio built with plain HTML, CSS and JavaScript.
 
-## Pages
-- Home, About, Projects, Journey & Goals, Contact, and a custom 404 page.
+## Experience
+
+- Fully redesigned dark developer-focused visual system with a responsive layout.
+- Five pages: Home, About, Projects, Journey and Contact.
+- Theme switcher with saved preference.
+- Quick navigation command palette (Ctrl/⌘ + K).
+- Project filters for built, learning and concept entries.
+- Scroll progress, reveal motion, mobile navigation and back-to-top control.
+- Copy-email interaction and direct email, WhatsApp, phone and GitHub links.
+- Reduced-motion support and keyboard focus states.
 
 ## Run locally
+
 Open `index.html` in a browser, or use VS Code Live Server.
 
-## Deploy to GitHub Pages
-A GitHub Actions workflow in `.github/workflows/pages.yml` deploys the repository root whenever code is pushed to `main`. In **Settings → Pages**, select **GitHub Actions** as the build source if it is not already selected. Then check the **Actions** tab for the deployment run.
+## Deploy
 
-Expected URL: https://thisahmad.github.io/portfolio/
+The GitHub Actions workflow publishes the repository root to the `gh-pages` branch after pushes to `main`.
 
-## Notes
-- The roadmap items are future targets, not completed achievements.
-- Skill indicators are informal, not verified proficiency scores.
+In **Settings → Pages**, select **Deploy from a branch**, choose `gh-pages` and `/(root)`.
+
+Live site: https://thisahmad.github.io/portfolio/
+
+## Accuracy notes
+
+- The portfolio describes Ahmad as a computer science student learning JavaScript and beginning Node.js/backend development.
+- Roadmap entries are goals, not completed achievements.
+- The JavaScript practice entry is a learning collection, and Omeet is labelled as an early concept.
+- Skill bars are informal visual indicators, not verified proficiency scores.
 - Contact details are those supplied by the site owner.
-- Animations respect `prefers-reduced-motion`; keyboard navigation and skip-to-content are included.
 - No framework or build step is required.
