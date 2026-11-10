@@ -56,3 +56,46 @@ body{background-image:radial-gradient(ellipse at 78% 8%,#c5f36c0a,transparent 34
 @media(hover:none){.card:hover .card-inner{transform:none}.card.is-flipped .card-inner{transform:rotateY(180deg)}}
 @media(max-width:650px){.card,.card-inner,.card-front,.card-back{min-height:290px}.card{margin-bottom:3px}.card-front,.card-back{padding:24px}.card-back h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.card-inner,.card,.mock,.core,.btn,.contact-icon,.milestone-card,.reveal{transition:none!important;animation:none!important}.card:hover .card-inner{transform:none}}
+
+
+/* === 2026 UI/UX refresh: tactile cards + accessible learning carousel === */
+:root{--card-ease:cubic-bezier(.2,.75,.25,1);--surface:#17231b;--surface-hi:#1e3023}
+.nav a{position:relative;padding:9px 0}
+.nav a:not(.cta-nav):after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--lime);transition:right .35s var(--card-ease)}
+.nav a:not(.cta-nav):hover:after,.nav a.active:not(.cta-nav):after{right:0}
+.nav .cta-nav{transition:background .25s,border-color .25s,transform .25s}
+.nav .cta-nav:hover{background:var(--lime);color:#142016;border-color:var(--lime);transform:translateY(-2px)}
+.hero{isolation:isolate}
+.hero:before{content:"";position:absolute;z-index:-1;width:520px;height:520px;right:-100px;top:55px;border-radius:50%;background:radial-gradient(circle,#c5f36c0c,transparent 68%);pointer-events:none}
+.cards-carousel{position:relative}
+.cards{display:flex;gap:14px;overflow-x:auto;overflow-y:visible;padding:18px 3px 28px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-inline:contain}
+.cards::-webkit-scrollbar{display:none}
+.card{flex:0 0 calc((100% - 28px)/3);min-width:0;min-height:320px;padding:28px;background:linear-gradient(145deg,#1d2b21 0%,#142019 75%);border:1px solid #ffffff12;overflow:hidden;isolation:isolate;transform:perspective(1000px) rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg));transform-origin:center;scroll-snap-align:start;transition:transform .45s var(--card-ease),border-color .35s,box-shadow .45s,background .35s}
+.card:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(360px circle at var(--spot-x,50%) var(--spot-y,50%),#c5f36c20,transparent 62%);transition:opacity .35s}
+.card:after{content:"";position:absolute;top:-60%;left:-80%;width:55%;height:220%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,#ffffff13,transparent);transition:left .75s var(--card-ease);pointer-events:none}
+.card:hover,.card:focus-within{transform:perspective(1000px) translateY(-9px) rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg));border-color:#c5f36c80;box-shadow:0 22px 55px #0005,0 0 0 1px #c5f36c12}
+.card:hover:before,.card:focus-within:before{opacity:1}
+.card:hover:after{left:140%}
+.card-index{position:relative;z-index:1}
+.card-icon{position:relative;z-index:1;width:52px;height:52px;border-radius:14px;background:linear-gradient(145deg,#c5f36c22,#c5f36c08);box-shadow:inset 0 1px #ffffff20,0 8px 22px #0002;transition:transform .45s var(--card-ease),border-radius .35s}
+.card:hover .card-icon{transform:translateY(-4px) rotate(-7deg) scale(1.08);border-radius:18px}
+.card h3{font-size:22px}
+.card p{max-width:34ch}
+.card-foot{margin-top:24px}
+.card-foot b{display:grid;place-items:center;width:28px;height:28px;border:1px solid #c5f36c45;border-radius:50%;transition:transform .35s,background .35s}
+.card:hover .card-foot b{transform:rotate(45deg);background:var(--lime);color:#142016}
+.carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:4px}
+.carousel-count{margin-right:auto;font:9px var(--mono);letter-spacing:.13em;color:#879487}
+.carousel-count strong{color:var(--lime);font-weight:400}
+.carousel-arrow{width:42px;height:42px;border:1px solid #ffffff25;background:transparent;color:var(--ink);border-radius:50%;display:grid;place-items:center;font-size:19px;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.carousel-arrow:hover:not(:disabled){background:var(--lime);border-color:var(--lime);color:#142016;transform:translateY(-2px)}
+.carousel-arrow:disabled{opacity:.28;cursor:not-allowed}
+.project .mock{border-radius:3px}
+.tags span{transition:background .25s,border-color .25s,color .25s}
+.tags span:hover{background:#c5f36c16;border-color:#c5f36c66;color:var(--lime)}
+.milestone-card{border-radius:3px}
+.contact-row{border-radius:3px}
+@media(max-width:900px){.card{flex-basis:calc((100% - 14px)/2)}}
+@media(max-width:650px){.hero:before{width:320px;height:320px;right:-120px;top:120px}.cards{gap:12px;padding:14px 2px 24px}.card{flex-basis:86%;min-height:300px;padding:25px}.carousel-controls{margin-top:0}.carousel-arrow{width:39px;height:39px}}
+@media(hover:none){.card{transform:none}.card:before{display:none}.card:after{display:none}.card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.cards{scroll-behavior:auto}.card,.card:before,.card:after,.card-icon,.carousel-arrow{transition:none!important}}
