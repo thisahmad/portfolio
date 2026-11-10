@@ -114,3 +114,43 @@ body.light-theme .orbit-card>small{color:#56607d}
 body.light-theme .orbit-core{background:radial-gradient(circle at 35% 25%,#e3e0ff,#fff 70%);border-color:#6758dc66}
 @media(max-width:680px){.orbit-section{padding-top:65px;padding-bottom:65px}.orbit-stage{height:470px;transform:scale(.78);transform-origin:center center;margin:-40px auto}.orbit-ring-a{width:300px;height:300px}.orbit-ring-b{width:390px;height:390px}.orbit-card{width:155px;min-height:112px;margin:-56px 0 0 -77px;padding:13px;transform:rotate(var(--orbit-angle)) translateY(-165px) rotate(var(--orbit-counter,0deg))}.orbit-card>b{font-size:13px}.orbit-core{width:145px;height:145px}.orbit-core-mark{font-size:38px}}
 @media(prefers-reduced-motion:reduce){.orbit-card,.orbit-ring,.orbit-hint span{transition:none!important;animation:none!important}.orbit-card{transform:none!important;position:relative;inset:auto;margin:8px;width:min(100%,260px)}.orbit-stage{height:auto;display:flex;flex-wrap:wrap;gap:10px;padding:25px 0}.orbit-core{position:relative;inset:auto;order:-1;margin:10px}.orbit-ring,.orbit-glow{display:none}}
+
+
+/* TYPOGRAPHY & CONTENT POLISH — consistent across every page */
+:root{--sans:"Inter",Arial,sans-serif;--display:"Space Grotesk","Inter",sans-serif;--mono:"DM Mono",monospace}
+body{font-family:var(--sans);font-size:15px;line-height:1.7;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,.brand-name,.button,.nav,.page-stamp,.focus-top,.focus-bottom,.eyebrow,.project-toolbar,.roadmap-top,.footer-bottom{font-family:var(--display)}
+h1,h2,h3,h4{font-weight:600;line-height:1.12;text-wrap:balance}
+.hero-title,.page-title{font-family:var(--display);font-weight:700;line-height:.99;letter-spacing:-.075em}
+.section-heading h2,.project-toolbar h2,.roadmap-summary h2,.manifesto h2,.closing-inner h2{font-family:var(--display);font-weight:600;line-height:1.06;letter-spacing:-.065em;text-wrap:balance}
+.focus-card h3,.featured-info h3,.story-row h3,.roadmap-content h3,.project-card h3{font-family:var(--display);font-weight:600;letter-spacing:-.035em}
+p{line-height:1.85;text-wrap:pretty}
+.hero-lead,.page-lead{font-size:clamp(14px,1.15vw,16px);line-height:1.9;max-width:54ch}
+.section-aside,.focus-card p,.featured-info p,.story-row p,.roadmap-content p,.project-card p,.contact-option p{font-size:13px;line-height:1.9;letter-spacing:-.01em}
+.eyebrow{font-size:9px;font-weight:600;letter-spacing:.19em}
+.button{font-weight:700;letter-spacing:.01em}
+.nav a{font-weight:600}
+.brand-name{font-weight:700}
+.gradient-text{background-size:180% 100%;animation:gradient-shift 9s ease-in-out infinite alternate}
+@keyframes gradient-shift{from{background-position:0% 50%}to{background-position:100% 50%}}
+::selection{background:#8b7cff;color:#fff}
+:focus-visible{outline:2px solid #36e0d0;outline-offset:4px}
+a,button{-webkit-tap-highlight-color:transparent}
+.text-link{font-weight:600}
+.page-stamp{font:600 9px var(--mono);letter-spacing:.14em;padding:10px 14px;display:inline-flex}
+.fine-print{font-size:11px;line-height:1.8;color:var(--muted-2)}
+.tag-row span,.project-tags span{font:500 9px var(--mono);letter-spacing:.08em}
+.footer-top p{font-size:12px;letter-spacing:.01em}
+.footer-bottom{font-size:8px;letter-spacing:.1em}
+.command-box{font-family:var(--sans)}
+.command-head,.command-box>p{font-family:var(--mono)}
+.command-results a{font-family:var(--display);font-weight:600}
+input,textarea,select{font-family:var(--sans);font-size:14px;line-height:1.5}
+@media(max-width:680px){
+ body{font-size:14px}
+ .hero-title,.page-title{letter-spacing:-.065em;line-height:1.02}
+ .section-heading h2,.project-toolbar h2{letter-spacing:-.055em}
+ .hero-lead,.page-lead{font-size:13px;line-height:1.8}
+ .section-aside,.focus-card p,.featured-info p,.story-row p,.roadmap-content p,.project-card p,.contact-option p{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.gradient-text{animation:none}}
