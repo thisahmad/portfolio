@@ -484,3 +484,12 @@ body.dark-theme .learning-state.active-state{background:var(--accent);border-col
  .personal-facts{grid-template-columns:1fr;gap:18px}
  .github-card{padding:23px}
 }
+
+/* Accessibility and interaction refinements */
+body.command-open{overflow:hidden}
+.command-overlay{overflow-y:auto;overscroll-behavior:contain}
+.command-box{border-radius:8px}
+.command-results a[hidden]{display:none}
+.filter-empty{max-width:620px;margin:18px auto;border:1px dashed var(--line);border-radius:6px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.command-overlay,.command-box,.next-step-link,.github-card,.learning-map-card{transition:none!important}}
