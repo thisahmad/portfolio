@@ -1,36 +1,29 @@
-# Ahmad — Personal Developer Portfolio
+# Ahmad Balqani
 
-A responsive multi-page portfolio built with plain HTML, CSS and JavaScript.
+**Computer Science (ICS) student · Pakistan · Aspiring Backend Developer**
 
-## Experience
+I’m learning programming by building, testing ideas, solving problems and sharing my progress. My current focus is JavaScript, with an early start in Node.js and a long-term direction toward backend development.
 
-- Futuristic 3D-inspired visual system with violet / cyan lighting, layered surfaces and responsive layouts.
-- Interactive depth tilt, ambient pointer spotlight, animated hero visuals and refreshed page-wide styling.
-- Five pages: Home, About, Projects, Journey and Contact.
-- Theme switcher with saved preference.
-- Quick navigation command palette (Ctrl/⌘ + K).
-- Project filters for built, learning and concept entries.
-- Scroll progress, reveal motion, mobile navigation and back-to-top control.
-- Copy-email interaction and direct email, WhatsApp, phone and GitHub links.
-- Reduced-motion support and keyboard focus states.
+- 🌱 **Currently learning:** JavaScript fundamentals and Node.js basics
+- 🧩 **Practising:** problem solving, loops, functions, arrays, objects and building small web experiences
+- 🛠️ **Using:** HTML, CSS, JavaScript and GitHub
+- 🎯 **Working toward:** understanding server-side development and building useful backend projects
+- 🤝 **Open to:** learning with other developers, constructive feedback and beginner-friendly collaboration
 
-## Run locally
+## Featured work
 
-Open `index.html` in a browser, or use VS Code Live Server.
+| Project | What it is | Status |
+|---|---|---|
+| [Personal Portfolio](https://thisahmad.github.io/portfolio/) | My multi-page portfolio, learning profile and project journal | Live |
+| JavaScript Practice Lab | A practice-focused build for JavaScript loop challenges and learning tasks | In progress |
+| PL Link | A concept for a community where people learn and grow together | Early planning |
 
-## Deploy
+## Find me
 
-The GitHub Actions workflow publishes the repository root to the `gh-pages` branch after pushes to `main`.
+- **GitHub:** [@thisahmad](https://github.com/thisahmad)
+- **Portfolio:** [thisahmad.github.io/portfolio](https://thisahmad.github.io/portfolio/)
+- **Email:** [ahmadbalqani@gmail.com](mailto:ahmadbalqani@gmail.com)
 
-In **Settings → Pages**, select **Deploy from a branch**, choose `gh-pages` and `/(root)`.
+---
 
-Live site: https://thisahmad.github.io/portfolio/
-
-## Accuracy notes
-
-- The portfolio describes Ahmad as a computer science student learning JavaScript and beginning Node.js/backend development.
-- Roadmap entries are goals, not completed achievements.
-- The JavaScript practice entry is a learning collection, and Omeet is labelled as an early concept.
-- Skill bars are informal visual indicators, not verified proficiency scores.
-- Contact details are those supplied by the site owner.
-- No framework or build step is required.
+*I’m early in the journey, and I prefer showing real progress over claiming skills I haven’t earned yet.*
