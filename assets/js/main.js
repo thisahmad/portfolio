@@ -31,6 +31,7 @@ if(orbitStage&&orbitCards.length&&!reduce){
   orbitCards.forEach((card,index)=>{
    const angle=rotation+index*(360/orbitCards.length);
    card.style.setProperty("--orbit-angle",angle+"deg");
+   card.style.setProperty("--orbit-counter",(-angle)+"deg");
    const depth= Math.cos(angle*Math.PI/180);
    card.style.zIndex=String(Math.round((depth+1)*10));
   });
