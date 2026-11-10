@@ -71,3 +71,18 @@ body>*{position:relative;z-index:1}
 @media(max-width:900px){.hero{min-height:auto;padding-top:65px}.section{padding-top:82px;padding-bottom:82px}.page-intro{min-height:390px;padding-top:85px}}
 @media(max-width:680px){.shell{width:calc(100% - 38px)}.header{border-radius:0 0 14px 14px}.nav{background:#0d1328;border-color:#8b7cff33}.hero{padding-top:55px;padding-bottom:75px}.hero-visual{perspective:none}.code-window{transform:none;animation:none}.page-intro:after{width:190px;height:190px;right:-85px;top:70px}.section{padding-top:68px;padding-bottom:68px}.focus-card,.project-card,.roadmap-content{border-radius:17px!important}.roadmap-content{padding:20px}.contact-option{padding:16px 8px}}
 @media(prefers-reduced-motion:reduce){.hero-visual .code-window,.page-intro:after{animation:none!important}body:after{display:none}}
+
+/* Light mode remains available through the existing theme switcher. */
+body.light-theme{--bg:#f2f3fb;--bg-soft:#e9ebf8;--panel:#fff;--panel-2:#e9eafa;--ink:#17182d;--muted:#56607d;--muted-2:#77809b;--line:#25234a1c;--accent:#6758dc;--accent-2:#078f91;background:radial-gradient(ellipse at 75% 5%,#8b7cff24,transparent 34%),radial-gradient(ellipse at 8% 48%,#36e0d01c,transparent 32%),#f2f3fb}
+body.light-theme:before{background-image:linear-gradient(#6758dc0a 1px,transparent 1px),linear-gradient(90deg,#6758dc0a 1px,transparent 1px)}
+body.light-theme .header{background:#f5f5fbe8}
+body.light-theme .focus-card,body.light-theme .featured-project,body.light-theme .project-card,body.light-theme .roadmap-content,body.light-theme .command-box{background:linear-gradient(145deg,#fff,#f0f1fb)!important;border-color:#6758dc30!important}
+body.light-theme .ticker{background:linear-gradient(90deg,#e7e8f8,#f0eefe,#e7e8f8)}
+body.light-theme .closing-section{background:radial-gradient(ellipse at 80% 30%,#8b7cff20,transparent 42%),linear-gradient(135deg,#e8e9f8,#f5f5fb)}
+body.light-theme .footer{background:#eceefa}
+body.light-theme .nav{background:#f5f5fb}
+body.light-theme .nav a{color:#56607d}
+body.light-theme .nav a:hover,body.light-theme .nav a[aria-current=page]{color:#17182d}
+body.light-theme .code-window{background:linear-gradient(145deg,#fff,#e9eafa)!important;color:#17182d}
+body.light-theme .float-chip{background:#fff!important;color:#17182d!important}
+body.light-theme .command-input{background:#fff;color:#17182d}
