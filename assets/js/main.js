@@ -19,4 +19,22 @@ input?.addEventListener("input",()=>{const q=input.value.trim().toLowerCase();re
 const toast=$(".toast");let toastTimer;const notify=message=>{if(!toast)return;toast.textContent=message;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),2200)};
 $$("[data-copy]").forEach(button=>button.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(button.dataset.copy);notify("Email address copied")}catch{notify("Copy unavailable — select the email address instead")}}));
 const filters=$$(".filter-btn"),cards=$$(".project-card"),empty=$(".filter-empty");filters.forEach(button=>button.addEventListener("click",()=>{filters.forEach(item=>item.classList.toggle("active",item===button));let count=0;cards.forEach(card=>{const show=button.dataset.filter==="all"||card.dataset.category===button.dataset.filter;card.hidden=!show;if(show)count++});if(empty)empty.hidden=count!==0}));
+
+/* Pointer-driven depth and ambient spotlight */
+if(!reduce && matchMedia("(pointer:fine)").matches){
+ const tiltTargets=$$(".focus-card,.project-card,.roadmap-content,.contact-option,.featured-project");
+ tiltTargets.forEach(card=>{
+  card.addEventListener("pointermove",event=>{
+   const rect=card.getBoundingClientRect(),x=(event.clientX-rect.left)/rect.width,y=(event.clientY-rect.top)/rect.height;
+   card.style.setProperty("--tilt-x",((.5-y)*5).toFixed(2)+"deg");
+   card.style.setProperty("--tilt-y",((x-.5)*7).toFixed(2)+"deg");
+   card.classList.add("is-tilting");
+  });
+  card.addEventListener("pointerleave",()=>card.classList.remove("is-tilting"));
+ });
+ document.addEventListener("pointermove",event=>{
+  document.body.style.setProperty("--pointer-x",event.clientX+"px");
+  document.body.style.setProperty("--pointer-y",event.clientY+"px");
+ },{passive:true});
+}
 })();
