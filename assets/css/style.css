@@ -18,7 +18,7 @@ body{background-image:radial-gradient(ellipse at 78% 8%,#c5f36c0a,transparent 34
 .card{perspective:1200px;min-height:315px;padding:0;background:transparent;border:0;overflow:visible;transform-style:preserve-3d}
 .card:hover{transform:translateY(-7px);border-color:transparent}
 .card-inner{position:relative;min-height:315px;height:100%;transform-style:preserve-3d;transition:transform .85s var(--ease-spring);will-change:transform}
-.card:hover .card-inner,.card:focus-within .card-inner,.card.is-flipped .card-inner{transform:rotateY(180deg)}
+.card:hover .card-inner,.card.is-flipped .card-inner{transform:rotateY(180deg)}
 .card-front,.card-back{position:absolute;inset:0;min-height:315px;padding:28px;background:linear-gradient(145deg,#1b2920,#152019 75%);border:1px solid #ffffff12;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
 .card-front:after,.card-back:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #c5f36c1a;border-radius:50%;right:-100px;top:-100px;pointer-events:none}
 .card-front{display:flex;flex-direction:column}
@@ -55,4 +55,4 @@ body{background-image:radial-gradient(ellipse at 78% 8%,#c5f36c0a,transparent 34
 .goal-star{display:inline-block}
 @media(hover:none){.card:hover .card-inner{transform:none}.card.is-flipped .card-inner{transform:rotateY(180deg)}}
 @media(max-width:650px){.card,.card-inner,.card-front,.card-back{min-height:290px}.card{margin-bottom:3px}.card-front,.card-back{padding:24px}.card-back h3{font-size:23px}}
-@media(prefers-reduced-motion:reduce){.card-inner,.card,.mock,.core,.btn,.contact-icon,.milestone-card,.reveal{transition:none!important;animation:none!important}.card:hover .card-inner,.card:focus-within .card-inner{transform:none}}
+@media(prefers-reduced-motion:reduce){.card-inner,.card,.mock,.core,.btn,.contact-icon,.milestone-card,.reveal{transition:none!important;animation:none!important}.card:hover .card-inner{transform:none}}
