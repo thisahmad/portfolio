@@ -4,7 +4,8 @@ A responsive multi-page portfolio built with plain HTML, CSS and JavaScript.
 
 ## Experience
 
-- Fully redesigned dark developer-focused visual system with a responsive layout.
+- Futuristic 3D-inspired visual system with violet / cyan lighting, layered surfaces and responsive layouts.
+- Interactive depth tilt, ambient pointer spotlight, animated hero visuals and refreshed page-wide styling.
 - Five pages: Home, About, Projects, Journey and Contact.
 - Theme switcher with saved preference.
 - Quick navigation command palette (Ctrl/⌘ + K).
